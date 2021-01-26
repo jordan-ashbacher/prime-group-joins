@@ -28,3 +28,6 @@ SELECT customers.first_name, customers.last_name, COUNT(orders.address_id) from 
 JOIN addresses ON customers.id = addresses.customer_id
 JOIN orders ON addresses.id = orders.address_id
 GROUP BY customers.first_name, customers.last_name;
+
+-- 6. How many customers do we have?
+SELECT COUNT(customers.id) FROM customers;
