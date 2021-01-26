@@ -22,3 +22,9 @@ JOIN warehouse_product ON warehouse.id = warehouse_product.warehouse_id
 JOIN products ON warehouse_product.product_id = products.id
 WHERE products.id = 6
 ORDER BY warehouse.warehouse;
+
+-- 5. Get the number of orders for each customer.
+SELECT customers.first_name, customers.last_name, COUNT(orders.address_id) from customers
+JOIN addresses ON customers.id = addresses.customer_id
+JOIN orders ON addresses.id = orders.address_id
+GROUP BY customers.first_name, customers.last_name;
