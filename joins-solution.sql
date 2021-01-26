@@ -31,3 +31,12 @@ GROUP BY customers.first_name, customers.last_name;
 
 -- 6. How many customers do we have?
 SELECT COUNT(customers.id) FROM customers;
+
+-- 7. How many products do we carry?
+SELECT COUNT(products.id) FROM products;
+
+-- 8. What is the total available on-hand quantity of diet pepsi?
+SELECT SUM(warehouse_product.on_hand), products.description FROM products
+JOIN warehouse_product ON products.id = warehouse_product.product_id
+WHERE products.id = 6
+GROUP BY products.description;
